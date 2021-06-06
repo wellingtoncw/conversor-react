@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import "./Conversor.css"
 
 export default class Conversor extends Component {
 
@@ -18,7 +19,7 @@ export default class Conversor extends Component {
     converter(){
         let de_para = `${this.props.moedaA}_${this.props.moedaB}`;
         //api pra pegar o valor do dólar
-        let url = `http://free.currencyconverterapi.com/api/v5/convert?q=${de_para}&compact=y`
+        let url = `http://free.currencyconverterapi.com/api/v5/convert?q=${de_para}&apiKey=7d3b4069bb8b623f0e42&compact=y`
         //acessar url e pegar o dado Convertido (promisse)
         fetch(url)
         .then(res=>{
@@ -37,8 +38,8 @@ export default class Conversor extends Component {
                 {/* acessa o parâmetro do Conversor no App.js */}
                 <h2>{this.props.moedaA} para {this.props.moedaB}</h2>
                 <input type="text" onChange={(event)=>{this.setState({moedaA_valor: event.target.value})}}></input>
-                <input type="button" value="Converter" onClick={this.converter}></input>
-                <h2>Valor Convertido</h2>
+                <button type="button" onClick = {this.converter}>Converter</button>
+                <h2>{this.state.moedaB_valor}</h2>
             </div>
         )
     }

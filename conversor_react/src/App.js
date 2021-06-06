@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import Conversor from './components/Conversor'
 
 function App() {
   return (
